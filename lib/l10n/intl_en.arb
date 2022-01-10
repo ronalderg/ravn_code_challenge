@@ -1,0 +1,16 @@
+{
+  "peopleOfStarWars": "People of star wars",
+  "human": "Human",
+  "from": "from",
+  "loadingUniverseData": "Loading universe data",
+  "generalInformation": "General Information",
+  "eyeColor": "Eye Color",
+  "hairColor": "Hair Color",
+  "skinColor": "Skin Color",
+  "birthYear": "Birth Year",
+  "vehicles": "Vehicles",
+  "failedToLoadData": "Failed to Load Data",
+  "pressBackButtonAgainToExit": "Press Back button again to Exit",
+  "selectALanguage": "Select a language",
+  "errorLoadingData": "Error Loading data, try to restart app or verify your internet connection"
+}

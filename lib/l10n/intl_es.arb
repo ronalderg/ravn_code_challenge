@@ -1,0 +1,16 @@
+{
+  "peopleOfStarWars": "Personajes de Star Wars",
+  "human": "Humano",
+  "from": "from",
+  "loadingUniverseData": "Cargando datos del universo",
+  "generalInformation": "Información General",
+  "eyeColor": "Color de ojos",
+  "hairColor": "Color de cabello",
+  "skinColor": "Color de piel",
+  "birthYear": "Año de nacimiento",
+  "vehicles": "Vehiculos",
+  "failedToLoadData": "Error al cargar la información",
+  "pressBackButtonAgainToExit": "Presiona de nuevo el botón atrás para salir",
+  "selectALanguage": "Seleccione un idioma",
+  "errorLoadingData": "Error cargando la información necesaria, intente reiniciar la app o verifique la coneción a internet"
+}

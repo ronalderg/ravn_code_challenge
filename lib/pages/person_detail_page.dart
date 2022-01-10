@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:ravn_code_challenge/generated/l10n.dart';
 import 'package:ravn_code_challenge/models/people.dart';
 import 'package:ravn_code_challenge/models/vehicle.dart';
 import 'package:ravn_code_challenge/services/rest_api.dart';
 import 'package:ravn_code_challenge/utils/utils.dart';
 
-class DetailPeople extends StatelessWidget {
-  DetailPeople({Key? key, this.people}) : super(key: key);
+/// Page to show character attributes
+class PersonDetailPage extends StatelessWidget {
+  PersonDetailPage({Key? key, this.people}) : super(key: key);
   People? people;
 
   Widget characteristicRow({
@@ -47,12 +49,12 @@ class DetailPeople extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('General Information', style: TextStyle(fontWeight: FontWeight.bold),),
+              Text(S.current.generalInformation, style: const TextStyle(fontWeight: FontWeight.bold),),
               const SizedBox(height: 10,),
-              characteristicRow(attributeName: 'Eye Color', attributeValue: people!.eyeColor),
-              characteristicRow(attributeName: 'Hair Color', attributeValue: people!.hairColor),
-              characteristicRow(attributeName: 'Skin Color', attributeValue: people!.skinColor),
-              characteristicRow(attributeName: 'Birth Year', attributeValue: people!.birthYear),
+              characteristicRow(attributeName: S.current.eyeColor, attributeValue: people!.eyeColor),
+              characteristicRow(attributeName: S.current.hairColor, attributeValue: people!.hairColor),
+              characteristicRow(attributeName: S.current.skinColor, attributeValue: people!.skinColor),
+              characteristicRow(attributeName: S.current.birthYear, attributeValue: people!.birthYear),
 
               FutureBuilder<List<Vehicle>>(
                 future: RestApi.getVehiclesOfPeople(urlVehicles: people!.vehicles!.toList()),
@@ -64,7 +66,7 @@ class DetailPeople extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Vehicles', style: TextStyle(fontWeight: FontWeight.bold, ),),
+                            Text(S.current.vehicles, style: const TextStyle(fontWeight: FontWeight.bold, ),),
                             const SizedBox(height: 15,),
                             ListView.builder(
                               itemCount: vehicles.length,
@@ -76,7 +78,7 @@ class DetailPeople extends StatelessWidget {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text(vehicles[index].name, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),),
+                                      Text(vehicles[index].name, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),),
                                       const Divider(thickness: 1, color: Colors.black12,),
                                     ],
                                   ),
@@ -88,17 +90,17 @@ class DetailPeople extends StatelessWidget {
                       );
                     } else if (snapshot.hasError) {
                       return Row(
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.error_outline,
                             color: Colors.red,
                             size: 60,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 16),
+                            padding: const EdgeInsets.only(top: 16),
                             child: Text(
-                              'Failed to Load Data',
-                              style: TextStyle(color: Colors.red),
+                              S.current.failedToLoadData,
+                              style: const TextStyle(color: Colors.red),
                             ),
                           )
                         ]

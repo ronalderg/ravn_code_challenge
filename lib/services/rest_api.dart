@@ -39,7 +39,7 @@ class RestApi {
     int maxPages = 1;
     do{
       final Uri url = Uri.parse('${URLS.apiUrl}/planets?page=$currentPage&size=10');
-      final response = await http.get(url);
+      final response = await http.get(url).timeout(const Duration(seconds: 15));
       if (response.statusCode == 200) {
         final planets = PlanetData.fromJson(json.decode(response.body));
         if(currentPage==1) {
@@ -63,7 +63,7 @@ class RestApi {
     int maxPages = 1;
     do{
       final Uri url = Uri.parse('${URLS.apiUrl}/species?page=$currentPage&size=10');
-      final response = await http.get(url);
+      final response = await http.get(url).timeout(const Duration(seconds: 15));
       if (response.statusCode == 200) {
         final species = SpecieData.fromJson(json.decode(response.body));
         if(currentPage==1) {
